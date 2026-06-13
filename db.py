@@ -1,7 +1,4 @@
 # pipeline_1_nutrition/db.py
-# Synchronous SQLAlchemy session for Neon PGVector ingestion.
-# Uses a context manager so the session is always cleanly closed,
-# even if an exception is raised mid-ingestion.
 
 import os
 import sys
