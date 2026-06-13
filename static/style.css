@@ -1,0 +1,355 @@
+/* Modern Reset & Typography */
+* {
+  box-sizing: border-box;
+  font-family: 'Outfit', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url("../static/chat-bg.png") center center / cover no-repeat fixed;
+  background-color: #111; /* Fallback */
+  color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Dark overlay for the background map */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Red Radial Glow behind the chatbox */
+.container-fluid {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  padding: 20px;
+}
+
+.row.justify-content-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.chat {
+  width: 100%;
+  max-width: 700px;
+  position: relative;
+}
+
+.chat::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0) 70%);
+  filter: blur(40px);
+  z-index: -1;
+  border-radius: 50%;
+}
+
+/* Solid Dark Card */
+.card {
+  height: 75vh;
+  min-height: 500px;
+  max-height: 800px;
+  background: #232323 !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 2;
+}
+
+/* Card Header */
+.card-header {
+  background: #232323 !important;
+  border-bottom: 0 !important;
+  padding: 20px;
+}
+
+.msg_head {
+  position: relative;
+}
+
+.d-flex.bd-highlight {
+  align-items: center;
+}
+
+.img_cont {
+  position: relative;
+  height: 50px;
+  width: 50px;
+}
+
+.user_img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+}
+
+.online_icon {
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  background-color: #10b981;
+  border-radius: 50%;
+  bottom: 0px;
+  right: 0px;
+  border: 2px solid #232323;
+}
+
+.user_info {
+  margin-left: 15px;
+}
+
+.user_info span {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  display: block;
+}
+
+.user_info p {
+  font-size: 11px;
+  color: #a0a0a0;
+  margin-bottom: 0;
+  margin-top: 2px;
+}
+
+/* Chat Body */
+.msg_card_body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px !important;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+.msg_card_body::-webkit-scrollbar {
+  width: 6px;
+}
+.msg_card_body::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+/* Message Animations */
+.msg-animate {
+  animation: slideUpFade 0.3s ease-out forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+@keyframes slideUpFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Common Layout for Messages */
+.d-flex.justify-content-start,
+.d-flex.justify-content-end {
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 15px !important;
+}
+
+.img_cont_msg {
+  width: 30px;
+  min-width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_img_msg {
+  width: 30px !important;
+  height: 30px !important;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Message Bubbles */
+.msg_cotainer,
+.msg_cotainer_send {
+  max-width: 75%;
+  padding: 12px 16px;
+  border-radius: 16px;
+  position: relative;
+  line-height: 1.5;
+  font-size: 14px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* Bot Message */
+.msg_cotainer {
+  background: #333 !important;
+  color: #eee !important;
+  border-bottom-left-radius: 4px;
+}
+
+/* User Message */
+.msg_cotainer_send {
+  background: #4a4a4a !important;
+  color: #fff !important;
+  border-bottom-right-radius: 4px;
+}
+
+.message-text {
+  white-space: pre-wrap;
+  color: inherit;
+}
+
+/* Timestamps */
+.msg_time,
+.msg_time_send {
+  position: absolute;
+  bottom: -18px;
+  font-size: 10px;
+  color: #888;
+}
+
+.msg_time {
+  left: 5px;
+}
+
+.msg_time_send {
+  right: 5px;
+}
+
+/* References UI */
+.message-meta {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.refs-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #aaa;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.refs-toggle-btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+
+.refs-panel {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ref-link {
+  display: flex;
+  gap: 8px;
+  text-decoration: none;
+  color: #aaa;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+.ref-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-decoration: none;
+}
+
+.ref-index {
+  color: #fff;
+}
+
+/* Card Footer (Input Area) */
+.card-footer {
+  background: #232323 !important;
+  border-top: 0 !important;
+  padding: 15px 20px 20px 20px !important;
+}
+
+.input-group {
+  background: #2e2e2e;
+  border-radius: 12px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+}
+
+.type_msg {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  padding: 12px 15px !important;
+  height: 45px !important;
+  font-size: 14px;
+}
+
+.type_msg:focus {
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.type_msg::placeholder {
+  color: #777;
+}
+
+.input-group-append {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.send_btn {
+  background: transparent !important;
+  color: #fff !important;
+  border: none !important;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50% !important;
+  transition: all 0.2s ease;
+}
+
+.send_btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.send_btn i {
+  font-size: 14px;
+}
